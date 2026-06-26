@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent · 자기소개</title>
+
+  <!-- 폰트: Pretendard(한글 본문) + JetBrains Mono(데이터/기록) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" />
+
+  <style>
+    :root {
+      --ink:    #0B0F1A;   /* 깊은 새벽 밤 */
+      --ink-2:  #111726;   /* 패널 */
+      --line:   #20283C;   /* 헤어라인 */
+      --mist:   #8B93A7;   /* 보조 텍스트 */
+      --mist-2: #59617A;   /* 흐린 라벨 */
+      --bone:   #ECEFF6;   /* 주요 텍스트 */
+      --gold:   #F3B340;   /* 새벽빛 · 기록 강조 (단일 액센트) */
+      --gold-d: #C98A1E;
+      --ember:  #C2503C;   /* DNF 마커 (딱 한 번만 사용) */
+
+      --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+      --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+              "맑은 고딕", "Malgun Gothic", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--bone);
+      font-family: var(--sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      /* 상단의 옅은 새벽빛 글로우 */
+      background-image:
+        radial-gradient(120% 60% at 50% -10%, rgba(243,179,64,0.10), transparent 60%);
+      background-repeat: no-repeat;
+    }
+
+    .wrap {
+      width: min(820px, 100% - 40px);
+      margin-inline: auto;
+    }
+
+    /* ---------- 공통 라벨 ---------- */
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6em;
+      margin: 0 0 1.1rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.7;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: clamp(6rem, 16vh, 11rem) 0 clamp(4rem, 9vh, 7rem);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+    .hero__tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: var(--mist-2);
+      text-transform: uppercase;
+      margin: 0 0 1.6rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5.2vw, 3.4rem);
+      line-height: 1.22;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 1.4rem;
+      max-width: 18ch;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero__sub {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--mist);
+      max-width: 36ch;
+      margin: 0;
+    }
+
+    /* ---------- 섹션 골격 ---------- */
+    section.block {
+      padding: clamp(3.5rem, 8vh, 6rem) 0;
+      border-top: 1px solid var(--line);
+    }
+    .block h2 {
+      font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      margin: 0 0 1.6rem;
+    }
+    .prose p {
+      font-size: 1.06rem;
+      color: #C9CFDE;
+      margin: 0 0 1.15rem;
+      max-width: 56ch;
+    }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose strong { color: var(--bone); font-weight: 700; }
+
+    /* ---------- 시그니처: 레이스 스플릿 타임라인 ---------- */
+    .splits {
+      list-style: none;
+      margin: 2.6rem 0 0;
+      padding: 0;
+      position: relative;
+    }
+    .splits::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: linear-gradient(var(--line), var(--gold-d));
+    }
+    .split {
+      position: relative;
+      padding: 0 0 1.9rem 2.4rem;
+    }
+    .split:last-child { padding-bottom: 0; }
+    .split::before {        /* 마커 점 */
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--ink);
+      border: 2px solid var(--mist-2);
+    }
+    .split__km {
+      font-family: var(--mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--bone);
+      letter-spacing: 0.04em;
+    }
+    .split__label {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mist-2);
+      margin-left: 0.7rem;
+    }
+    .split p {
+      margin: 0.5rem 0 0;
+      color: var(--mist);
+      font-size: 0.98rem;
+      max-width: 48ch;
+    }
+    /* DNF — 유일하게 ember 사용 */
+    .split--fault::before {
+      border-color: var(--ember);
+      background: var(--ember);
+    }
+    .split--fault .split__km { color: var(--ember); }
+    /* FINISH — 새벽빛 골드 */
+    .split--finish::before {
+      border-color: var(--gold);
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(243,179,64,0.18);
+    }
+    .split--finish .split__km { color: var(--gold); }
+
+    /* ---------- 용어 각주 (Sub-3란?) ---------- */
+    .note {
+      margin-top: 2.4rem;
+      padding: 1.1rem 1.3rem;
+      border-left: 2px solid var(--gold);
+      background: var(--ink-2);
+      border-radius: 0 8px 8px 0;
+    }
+    .note__k {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 0.4rem;
+    }
+    .note p { margin: 0; color: var(--mist); font-size: 0.96rem; }
+
+    /* ---------- 증명한 두 가지 ---------- */
+    .proofs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-top: 2.6rem;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .proof {
+      background: var(--ink-2);
+      padding: 1.5rem 1.4rem;
+    }
+    .proof__n {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+    }
+    .proof h3 {
+      font-size: 1.05rem;
+      margin: 0.6rem 0 0.4rem;
+      font-weight: 700;
+    }
+    .proof p { margin: 0; color: var(--mist); font-size: 0.94rem; line-height: 1.6; }
+
+    /* ---------- 마라톤 사진 ---------- */
+    .photo {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--ink-2);
+    }
+    .photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;     /* 어떤 비율의 사진도 깔끔하게 채움 */
+    }
+    .photo figcaption {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mist-2);
+      padding: 0.85rem 1.1rem;
+      border-top: 1px solid var(--line);
+    }
+    .photo figcaption b { color: var(--gold); font-weight: 700; }
+
+    /* ---------- 푸터 ---------- */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2.4rem 0 3rem;
+    }
+    footer p {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      color: var(--mist-2);
+      margin: 0;
+    }
+
+    /* ---------- 반응형 ---------- */
+    @media (max-width: 560px) {
+      .proofs { grid-template-columns: 1fr; }
+      .split__label { display: block; margin-left: 0; margin-top: 0.2rem; }
+    }
+
+    /* ---------- 접근성 ---------- */
+    a:focus-visible, :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===================== HERO ===================== -->
+  <header class="hero wrap">
+    <p class="hero__tag">Agent · 자기소개</p>
+    <h1>무너진 자리에서 <em>원인을 분석</em>하고,<br />끝까지 <em>완주</em>합니다.</h1>
+    <p class="hero__sub">분석력과 실행력으로 역경을 기록으로 바꾸는 사람.</p>
+  </header>
+
+  <main>
+    <!-- ===================== ABOUT ===================== -->
+    <section class="block wrap">
+      <p class="eyebrow">The Story</p>
+      <h2>서사</h2>
+
+      <div class="prose">
+        <p>좋지 않은 건강은 오랫동안 공부의 발목을 잡았습니다. 이를 정면으로 넘어서기 위해 시작한 것이 <strong>러닝</strong>이었습니다.</p>
+        <p>작게 시작한 달리기는 어느새 풀코스 마라톤 도전으로 이어졌습니다. 첫 마라톤에서는 결승선을 밟지 못하고 의식을 잃고 쓰러졌습니다. 하지만 좌절에 머무르는 대신 <strong>무엇이 잘못됐는지를 분석</strong>했고, 그 원인을 훈련 계획에 반영해 포기하지 않고 다시 달렸습니다. 그 결과 <strong>Sub-3</strong>라는 기록을 만들어냈습니다.</p>
+      </div>
+
+      <!-- 시그니처: 실제 순서를 기록표로 -->
+      <ol class="splits">
+        <li class="split">
+          <span class="split__km">0 KM</span><span class="split__label">Start</span>
+          <p>건강을 정면으로 넘어서기 위해 러닝을 시작.</p>
+        </li>
+        <li class="split split--fault">
+          <span class="split__km">DNF</span><span class="split__label">First Marathon</span>
+          <p>첫 풀코스. 결승선을 밟지 못하고 의식을 잃고 쓰러짐.</p>
+        </li>
+        <li class="split">
+          <span class="split__km">ANALYSIS</span><span class="split__label">Root Cause</span>
+          <p>좌절 대신 원인을 구조적으로 분석하고, 그 결과를 훈련 계획에 반영.</p>
+        </li>
+        <li class="split split--finish">
+          <span class="split__km">42.195 KM</span><span class="split__label">Sub-3 · Finish</span>
+          <p>포기하지 않고 다시 달려 3시간 이내 완주.</p>
+        </li>
+      </ol>
+
+      <!-- 용어 각주 -->
+      <aside class="note">
+        <p class="note__k">Sub-3 란?</p>
+        <p>풀코스 마라톤(42.195km)을 3시간 이내에 완주하는 것. 아마추어 러너에게는 상위권의 상징적인 기준입니다.</p>
+      </aside>
+
+      <div class="prose" style="margin-top:2.6rem;">
+        <p>이 과정은 제게 두 가지를 증명해 주었습니다.</p>
+      </div>
+
+      <!-- 증명한 두 가지 -->
+      <div class="proofs">
+        <div class="proof">
+          <span class="proof__n">01 · 분석력</span>
+          <h3>실패의 원인을 구조적으로 분석하는 힘</h3>
+          <p>무너진 지점에서 멈추지 않고, 왜 무너졌는지를 구조로 파악합니다.</p>
+        </div>
+        <div class="proof">
+          <span class="proof__n">02 · 실행력</span>
+          <h3>끝까지 결과물로 완주하는 힘</h3>
+          <p>동기에 기대지 않고, 목표를 기록이라는 결과물로 만들어냅니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 사진 ===================== -->
+    <section class="block wrap">
+      <p class="eyebrow">Record</p>
+      <h2>그날의 기록</h2>
+      <figure class="photo">
+        <img src="images/5B73BE6F-A5C4-44CB-B41A-0A4B6265C330_1_105_c%20copy.jpeg" alt="풀코스 마라톤 완주 사진" />
+        <figcaption>42.195 KM · <b>Finish</b></figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== NOW ===================== -->
+    <section class="block wrap">
+      <p class="eyebrow">Present</p>
+      <h2>현재</h2>
+      <div class="prose">
+        <p>지금은 건강과 자신감을 되찾았고, 그 위에서 학업을 이어가며 한 걸음씩 성장하고 있습니다. 마라톤에서 검증한 <strong>분석하고 완주하는 방식</strong>을, 이제는 개발과 공부에 그대로 적용하고 있습니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="wrap">
+    <p>분석력 × 실행력 — 역경을 기록으로.</p>
+  </footer>
+</body>
+</html>
